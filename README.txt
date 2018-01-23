@@ -1,0 +1,5 @@
+This project reads in a string of characters from a text file, stores it in a hash table with vectors of Buckets, and outputs a shortened string that “compresses” the original file to create a new deltafile. Each Bucket is a struct that holds a string of a sequence of chars and a vector<int> to hold all possible offsets for that sequence. 
+
+For every sequence of 8-bytes that’s read from newFile, it would add that sequence to the hash table by checking if there's already that sequence in a specific index (determined by a hash function for that sequence), and if it matches the sequence, pushes another offset vector in that Bucket's vector of offsets. If there isn't a Bucket with a matching sequence, then it creates a new Bucket with that sequence value and offset value and adds it to the vector of Buckets at that specific index. 
+
+The folder “p4test” contains files for testing the “compression” algorithm. 
